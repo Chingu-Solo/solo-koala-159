@@ -1,6 +1,6 @@
 export const getCurrentDate = () => new Date().getDate();
 
-export const getCurrentMonth = () => {
+export const getCurrentMonthFull = () => {
   let date = new Date();
   let month = [];
 
@@ -18,6 +18,36 @@ export const getCurrentMonth = () => {
   month[11] = 'December';
 
   return month[date.getMonth()];
+};
+
+export const getMonthAbbreviated = () => {
+  let date = new Date();
+  let month = [];
+
+  month[0] = 'Jan';
+  month[1] = 'Feb';
+  month[2] = 'Mar';
+  month[3] = 'Apr';
+  month[4] = 'May';
+  month[5] = 'Jun';
+  month[6] = 'Jul';
+  month[7] = 'Aug';
+  month[8] = 'Sep';
+  month[9] = 'Oct';
+  month[10] = 'Nov';
+  month[11] = 'Dec';
+
+  let monthsToShow = [];
+
+  let previousMonth = month[date.getMonth() - 1];
+  let currentMonth = month[date.getMonth()];
+  let nextMonth = month[date.getMonth() + 1];
+
+  monthsToShow.push(previousMonth);
+  monthsToShow.push(currentMonth);
+  monthsToShow.push(nextMonth);
+
+  return monthsToShow;
 };
 
 export const getCurrentWeekday = () => {

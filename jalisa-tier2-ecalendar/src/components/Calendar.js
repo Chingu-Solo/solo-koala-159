@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { getCurrentYear } from '../utilities/calendarUtils';
+import { getCurrentYear, getMonthAbbreviated } from '../utilities/calendarUtils';
 
 const Calendar = () => {
   return (
@@ -9,6 +9,11 @@ const Calendar = () => {
         <h1>eCalendar</h1>
         <h2>{getCurrentYear()}</h2>
       </CalendarHeader>
+      <Months>
+        <PreviousMonth>{getMonthAbbreviated().slice(0,1)}</PreviousMonth>
+        <CurrentMonth>{getMonthAbbreviated().slice(1,2)}</CurrentMonth>
+        <NextMonth>{getMonthAbbreviated().slice(2,3)}</NextMonth>
+      </Months>
       <DayOfWeek>
         <div>SUN</div>
         <div>MON</div>
@@ -75,11 +80,37 @@ const CalendarHeader = styled.div`
   }
 `;
 
+const Months = styled.div`
+  display: flex;
+  font-weight: 400;
+  justify-content: center;
+  padding: 30px 15px;
+  border-bottom: 2px solid #000;
+  align-items: center;
+`;
+
+const PreviousMonth = styled.div`
+  font-size: 1.1em;
+  color: #ddd;
+  padding-right: 30px;
+`;
+
+const CurrentMonth = styled.div`
+  font-size: 1.2em;
+`;
+
+const NextMonth = styled.div`
+  font-size: 1.1em;
+  color: #ddd;
+  padding-left: 30px;
+`;
+
 const DayOfWeek = styled.div`
   display: grid;
   justify-items: center;
   grid-row: 2/3;
   grid-template-columns: repeat(7, 1fr);
+  padding-top: 20px;
 `;
 
 const DateGrid = styled.div`
