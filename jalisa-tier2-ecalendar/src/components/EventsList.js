@@ -13,9 +13,7 @@ const EventsList = () => {
     <EventsContainer>
       <SignIn>sign in</SignIn>
       <DayOfWeek>{getCurrentWeekday()}</DayOfWeek>
-      <MonthDate>
-        {monthDate}
-      </MonthDate>
+      <MonthDate>{monthDate}</MonthDate>
     </EventsContainer>
   );
 };
@@ -23,37 +21,29 @@ const EventsList = () => {
 export default EventsList;
 
 const EventsContainer = styled.div`
-  display: grid;
+  display: block;
   width: 25%;
   height: calc(95vh - 50px);
   padding-left: 30px;
   margin-left: 50px;
-  grid-template-rows: auto auto auto 50px auto;
-  grid-template-columns: auto auto;
   background-color: #eee;
 `;
 
 const SignIn = styled.div`
-  grid-row: 1/2;
-  grid-column: 2/3;
   text-align: right;
-  align-self: center;
   font-size: 1.3em;
+  margin-top: 15px;
   margin-right: 15px;
   cursor: pointer;
 `;
 
 const DayOfWeek = styled.div`
-  grid-row: 2/3;
-  grid-column: 1/2;
   font-weight: 400;
   font-size: 1.2em;
   align-self: end;
 `;
 
 const MonthDate = styled.div`
-  grid-row: 3/4;
-  grid-column: 1/2;
   font-weight: 400;
   font-size: 1.2em;
 `;
