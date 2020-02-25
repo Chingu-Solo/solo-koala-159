@@ -1,8 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { getCurrentYear, getMonthAbbreviated } from '../utilities/calendarUtils';
+import {
+  getCurrentYear,
+  getMonthAbbreviated,
+  getWeekdaysShort
+} from '../utilities/calendarUtils';
 
 const Calendar = () => {
+  const leftArrowClickedHandler = () => {};
+
+  const rightArrowClickedHandler = () => {};
+
   return (
     <CalendarContainer>
       <CalendarHeader>
@@ -10,18 +18,22 @@ const Calendar = () => {
         <h2>{getCurrentYear()}</h2>
       </CalendarHeader>
       <Months>
-        <PreviousMonth>{getMonthAbbreviated().slice(0,1)}</PreviousMonth>
-        <CurrentMonth>{getMonthAbbreviated().slice(1,2)}</CurrentMonth>
-        <NextMonth>{getMonthAbbreviated().slice(2,3)}</NextMonth>
+        <LeftArrow
+          onClick={leftArrowClickedHandler}
+          src={require('../assets/images/arrow-left.png')}
+        />
+        <PreviousMonth>{getMonthAbbreviated().slice(0, 1)}</PreviousMonth>
+        <CurrentMonth>{getMonthAbbreviated().slice(1, 2)}</CurrentMonth>
+        <NextMonth>{getMonthAbbreviated().slice(2, 3)}</NextMonth>
+        <RightArrow
+          onClick={rightArrowClickedHandler}
+          src={require('../assets/images/arrow-right.png')}
+        />
       </Months>
       <DayOfWeek>
-        <div>SUN</div>
-        <div>MON</div>
-        <div>TUE</div>
-        <div>WED</div>
-        <div>THU</div>
-        <div>FRI</div>
-        <div>SAT</div>
+        {getWeekdaysShort().map(day => {
+          return <div key={day}>{day}</div>;
+        })}
       </DayOfWeek>
       <DateGrid>
         <button>
@@ -84,9 +96,23 @@ const Months = styled.div`
   display: flex;
   font-weight: 400;
   justify-content: center;
+  align-items: center;
   padding: 30px 15px;
   border-bottom: 2px solid #000;
-  align-items: center;
+`;
+
+const LeftArrow = styled.img`
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  padding-right: 40px;
+`;
+
+const RightArrow = styled.img`
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  padding-left: 40px;
 `;
 
 const PreviousMonth = styled.div`
@@ -111,6 +137,7 @@ const DayOfWeek = styled.div`
   grid-row: 2/3;
   grid-template-columns: repeat(7, 1fr);
   padding-top: 20px;
+  text-transform: uppercase;
 `;
 
 const DateGrid = styled.div`
