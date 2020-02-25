@@ -25,6 +25,7 @@ export default EventsList;
 const EventsContainer = styled.div`
   display: grid;
   width: 25%;
+  height: calc(95vh - 50px);
   padding-left: 30px;
   margin-left: 50px;
   grid-template-rows: auto auto auto 50px auto;
