@@ -34,6 +34,7 @@ const SignIn = styled.div`
   font-size: 1.3em;
   margin-top: 15px;
   margin-right: 15px;
+  padding-bottom: 40px;
   cursor: pointer;
 `;
 
