@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import {
   getCurrentDate,
@@ -6,27 +6,49 @@ import {
   getCurrentWeekday
 } from '../utilities/calendarUtils';
 
+import EventsPanelImage from '../assets/images/winter.jpeg';
+
 const EventsList = () => {
+  const [eventsList, setEventsList] = useState({
+    title: '',
+    startDate: '',
+    endDate: '',
+    begins: '',
+    ends: '',
+    people: '',
+    location: '',
+    description: ''
+  });
+
   const monthDate = `${getCurrentMonthFull()} ${getCurrentDate()}`;
 
   return (
-    <EventsContainer>
+    <EventsPanel>
       <SignIn>sign in</SignIn>
       <DayOfWeek>{getCurrentWeekday()}</DayOfWeek>
       <MonthDate>{monthDate}</MonthDate>
-    </EventsContainer>
+      <EventsListContainer>
+        <ul>
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+        </ul>
+      </EventsListContainer>
+    </EventsPanel>
   );
 };
 
 export default EventsList;
 
-const EventsContainer = styled.div`
+const EventsPanel = styled.div`
   display: block;
   width: 25%;
   height: calc(95vh - 50px);
   padding-left: 30px;
   margin-left: 50px;
-  background-color: #eee;
+  background-image: url(${EventsPanelImage});
+  background-repeat: no-repeat;
+  background-attachment: center;
 `;
 
 const SignIn = styled.div`
@@ -47,4 +69,17 @@ const DayOfWeek = styled.div`
 const MonthDate = styled.div`
   font-weight: 400;
   font-size: 1.2em;
+`;
+
+const EventsListContainer = styled.div`
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-right: 30px;
+  ul {
+    padding: 20px;
+    list-style-type: none;
+    li {
+      color: white;
+    }
+  }
 `;
