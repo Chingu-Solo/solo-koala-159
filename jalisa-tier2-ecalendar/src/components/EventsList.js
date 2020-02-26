@@ -22,6 +22,8 @@ const EventsList = () => {
 
   const monthDate = `${getCurrentMonthFull()} ${getCurrentDate()}`;
 
+  const addEventClickedHandler = () => {};
+
   return (
     <EventsPanel>
       <SignIn>sign in</SignIn>
@@ -34,6 +36,12 @@ const EventsList = () => {
           <li>Item 3</li>
         </ul>
       </EventsListContainer>
+      <AddEvent>
+        <AddEventIcon
+          onClick={addEventClickedHandler}
+          src={require('../assets/images/plus-sign.png')}
+        />
+      </AddEvent>
     </EventsPanel>
   );
 };
@@ -74,12 +82,31 @@ const MonthDate = styled.div`
 const EventsListContainer = styled.div`
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.5);
+  margin-top: 15px;
   margin-right: 30px;
+  height: 55vh;
+  overflow: auto;
+  font-size: 1.1em;
+  line-height: 1.8;
+
   ul {
-    padding: 20px;
+    padding: 0px 20px;
     list-style-type: none;
     li {
       color: white;
     }
   }
+`;
+
+const AddEvent = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-right: 30px;
+  margin-top: 35px;
+`;
+
+const AddEventIcon = styled.img`
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
 `;

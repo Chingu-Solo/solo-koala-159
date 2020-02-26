@@ -103,31 +103,31 @@ const Months = styled.div`
 
 const LeftArrow = styled.img`
   cursor: pointer;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   padding-right: 40px;
 `;
 
 const RightArrow = styled.img`
   cursor: pointer;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   padding-left: 40px;
 `;
 
 const PreviousMonth = styled.div`
-  font-size: 1.1em;
-  color: #ddd;
+  font-size: 1.2em;
+  color: #888;
   padding-right: 30px;
 `;
 
 const CurrentMonth = styled.div`
-  font-size: 1.2em;
+  font-size: 1.3em;
 `;
 
 const NextMonth = styled.div`
-  font-size: 1.1em;
-  color: #ddd;
+  font-size: 1.2em;
+  color: #888;
   padding-left: 30px;
 `;
 
