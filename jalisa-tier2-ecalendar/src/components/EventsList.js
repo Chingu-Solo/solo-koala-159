@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
 import {
   getCurrentDate,
@@ -7,42 +7,62 @@ import {
 } from '../utilities/calendarUtils';
 
 import EventsPanelImage from '../assets/images/winter.jpeg';
+import Modal from './UI/Modal';
+import EventForm from './EventForm';
 
 const EventsList = () => {
-  const [eventsList, setEventsList] = useState({
-    title: '',
-    startDate: '',
-    endDate: '',
-    begins: '',
-    ends: '',
-    people: '',
-    location: '',
-    description: ''
-  });
+  const [showEventModal, setShowEventModal] = useState(false);
+
+  const [eventsList, setEventsList] = useState([
+    {
+      title: '',
+      startDate: '',
+      endDate: '',
+      begins: '',
+      ends: '',
+      people: '',
+      location: '',
+      description: ''
+    }
+  ]);
 
   const monthDate = `${getCurrentMonthFull()} ${getCurrentDate()}`;
 
-  const addEventClickedHandler = () => {};
+  const addEventClickedHandler = () => {
+    setShowEventModal(true);
+  };
+
+  const closeEventModalHandler = () => {
+    setShowEventModal(false);
+  };
 
   return (
-    <EventsPanel>
-      <SignIn>sign in</SignIn>
-      <DayOfWeek>{getCurrentWeekday()}</DayOfWeek>
-      <MonthDate>{monthDate}</MonthDate>
-      <EventsListContainer>
-        <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-        </ul>
-      </EventsListContainer>
-      <AddEvent>
-        <AddEventIcon
-          onClick={addEventClickedHandler}
-          src={require('../assets/images/plus-sign.png')}
-        />
-      </AddEvent>
-    </EventsPanel>
+    <Fragment>
+      <EventsPanel>
+        <SignIn>sign in</SignIn>
+        <DayOfWeek>{getCurrentWeekday()}</DayOfWeek>
+        <MonthDate>{monthDate}</MonthDate>
+        <EventsListContainer>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+          </ul>
+        </EventsListContainer>
+        <AddEvent>
+          <AddEventIcon
+            onClick={addEventClickedHandler}
+            src={require('../assets/images/plus-sign.png')}
+          />
+        </AddEvent>
+      </EventsPanel>
+      <Modal
+        showModal={showEventModal}
+        onCloseButtonClicked={closeEventModalHandler}
+      >
+        <EventForm />
+      </Modal>
+    </Fragment>
   );
 };
 

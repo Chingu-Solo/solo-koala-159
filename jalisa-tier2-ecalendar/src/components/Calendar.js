@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import {
   getCurrentYear,
+  getCurrentMonthFull,
   getMonthAbbreviated,
-  getWeekdaysShort
+  getWeekdaysShort,
+  getDaysInMonth,
+  getFirstDayOfMonth,
+  getLastDayOfMonth
 } from '../utilities/calendarUtils';
 
 const Calendar = () => {
+  const [date, setDate] = useState(new Date());
+
+  const numberOfDaysInMonth = getFirstDayOfMonth(date).getDate();
+
+  const emptyDaysInMonth = getLastDayOfMonth(date).getDay();
+
   const leftArrowClickedHandler = () => {};
 
   const rightArrowClickedHandler = () => {};
@@ -15,7 +25,7 @@ const Calendar = () => {
     <CalendarContainer>
       <CalendarHeader>
         <h1>eCalendar</h1>
-        <h2>{getCurrentYear()}</h2>
+        <h2>{date.getFullYear()}</h2>
       </CalendarHeader>
       <Months>
         <LeftArrow
@@ -36,30 +46,12 @@ const Calendar = () => {
         })}
       </DayOfWeek>
       <DateGrid>
-        <button>
-          <time datetime="2019-02-01">1</time>
-        </button>
-        <button>
-          <time datetime="2019-02-02">2</time>
-        </button>
-        <button>
-          <time datetime="2019-02-03">3</time>
-        </button>
-        <button>
-          <time datetime="2019-02-4">4</time>
-        </button>
-        <button>
-          <time datetime="2019-02-5">5</time>
-        </button>
-        <button>
-          <time datetime="2019-02-6">6</time>
-        </button>
-        <button>
-          <time datetime="2019-02-7">7</time>
-        </button>
-        <button>
-          <time datetime="2019-02-8">8</time>
-        </button>
+        {Array.from(Array(emptyDaysInMonth), () => (
+          <div></div>
+        ))}
+        {Array.from(Array(numberOfDaysInMonth), (_, i) => (
+          <button>{i + 1}</button>
+        ))}
       </DateGrid>
     </CalendarContainer>
   );

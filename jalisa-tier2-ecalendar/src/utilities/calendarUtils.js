@@ -71,3 +71,20 @@ export const getWeekdaysShort = () => {
 };
 
 export const getCurrentYear = () => new Date().getFullYear();
+
+export const getDaysInMonth = (month, year) => {
+  return new Date(year, month, 0).getDate();
+};
+
+export const getFirstDayOfMonth = (date) => {
+  const firstDayOfMonth = new Date(date);
+  firstDayOfMonth.setMonth(firstDayOfMonth.getMonth() + 1);
+  firstDayOfMonth.setDate(0);
+  return firstDayOfMonth;
+};
+
+export const getLastDayOfMonth = (date) => {
+  const lastDayOfMonth = new Date(date);
+  lastDayOfMonth.setDate(1);
+  return lastDayOfMonth;
+};
