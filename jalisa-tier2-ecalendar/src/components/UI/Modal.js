@@ -29,7 +29,7 @@ const ModalContainer = styled.div`
 `;
 
 const ModalContent = styled.div`
-  background-color: #fefefe;
+  background-color: #ddd;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
