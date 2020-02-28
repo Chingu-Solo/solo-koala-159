@@ -73,3 +73,15 @@ export const getLastDayOfMonth = date => {
   lastDayOfMonth.setDate(1);
   return lastDayOfMonth;
 };
+
+export const getPreviousMonth = (date) => {
+  const prevMonthDate = new Date(date);
+  prevMonthDate.setMonth(prevMonthDate.getMonth() - 1);
+  return prevMonthDate;
+};
+
+export const getNextMonth = (date) => {
+  const nextMonthDate = new Date(date);
+  nextMonthDate.setMonth(nextMonthDate.getMonth() + 1);
+  return nextMonthDate;
+};

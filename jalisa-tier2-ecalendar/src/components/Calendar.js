@@ -4,25 +4,34 @@ import {
   getAbbreviatedMonthNames,
   getWeekdaysShort,
   getFirstDayOfMonth,
-  getLastDayOfMonth
+  getLastDayOfMonth,
+  getPreviousMonth,
+  getNextMonth
 } from '../utilities/calendarUtils';
 
 const Calendar = () => {
-  const [date, setDate] = useState(new Date());
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const [date, setDate] = useState(new Date(today));
+  const [selectedDate, setSelectedDate] = useState(date);
 
   const numberOfDaysInMonth = getFirstDayOfMonth(date).getDate();
   const emptyDaysInMonth = getLastDayOfMonth(date).getDay();
 
+  const previousMonthDate = getPreviousMonth(date);
+  const nextMonthDate = getNextMonth(date);
+
   const leftArrowClickedHandler = () => {
-    const date = new Date();
-    date.setMonth(date.getMonth() - 1);
-    setDate(date);
+    setDate(previousMonthDate);
   };
 
   const rightArrowClickedHandler = () => {
-    const date = new Date();
-    date.setMonth(date.getMonth() + 1);
-    setDate(date);
+    setDate(nextMonthDate);
+  };
+
+  const selectedDateHandler = newSelectedDate => {
+    setSelectedDate(newSelectedDate);
   };
 
   return (
@@ -37,10 +46,12 @@ const Calendar = () => {
           src={require('../assets/images/arrow-left.png')}
         />
         <PreviousMonth>
-          {getAbbreviatedMonthNames[date.getMonth() - 1]}
+          {getAbbreviatedMonthNames[previousMonthDate.getMonth()]}
         </PreviousMonth>
         <CurrentMonth>{getAbbreviatedMonthNames[date.getMonth()]}</CurrentMonth>
-        <NextMonth>{getAbbreviatedMonthNames[date.getMonth() + 1]}</NextMonth>
+        <NextMonth>
+          {getAbbreviatedMonthNames[nextMonthDate.getMonth()]}
+        </NextMonth>
         <RightArrow
           onClick={rightArrowClickedHandler}
           src={require('../assets/images/arrow-right.png')}
@@ -55,9 +66,21 @@ const Calendar = () => {
         {Array.from(Array(emptyDaysInMonth), () => (
           <div></div>
         ))}
-        {Array.from(Array(numberOfDaysInMonth), (_, i) => (
-          <button>{i + 1}</button>
-        ))}
+        {Array.from(Array(numberOfDaysInMonth), (_, i) => {
+          const cellDate = new Date(date);
+          cellDate.setDate(i + 1);
+          return (
+            <DateCell
+              onClick={() => selectedDateHandler(cellDate)}
+              isDateSelected={
+                selectedDate.toDateString() === cellDate.toDateString()
+              }
+              isCurrentDate={cellDate.toDateString() === today.toDateString()}
+            >
+              {cellDate.getDate()}
+            </DateCell>
+          );
+        })}
       </DateGrid>
     </CalendarContainer>
   );
@@ -95,7 +118,6 @@ const Months = styled.div`
   justify-content: center;
   align-items: center;
   padding: 30px 15px;
-  border-bottom: 2px solid #000;
 `;
 
 const LeftArrow = styled.img`
@@ -133,22 +155,33 @@ const DayOfWeek = styled.div`
   justify-items: center;
   grid-row: 2/3;
   grid-template-columns: repeat(7, 1fr);
-  padding-top: 20px;
   text-transform: uppercase;
-  font-size: 1.1em;
+  font-weight: 600;
+  align-items: center;
+  padding: 20px 0;
+  color: #800480;
+  border-top: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
 `;
 
 const DateGrid = styled.div`
   display: grid;
   grid-row: 3/6;
   grid-template-columns: repeat(7, 1fr);
+`;
 
-  button {
-    outline: none;
-    border: none;
-    cursor: pointer;
-    height: 80px;
-    font-size: 1.2em;
-    font-weight: ${props => (props.currentDate ? '600' : '400')};
-  }
+const DateCell = styled.button`
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 3vw;
+  height: 3vw;
+  margin: 1vw;
+  justify-self: center;
+  font-weight: ${props => (props.isCurrentDate ? '600' : '400')};
+  font-size: ${props => (props.isCurrentDate ? '1.4vw' : '1.2vw')};
+  border: ${props => (props.isDateSelected ? '1px solid #188665' : 'none')};
+  background-color: ${props => (props.isDateSelected ? '#188665' : 'white')};
+  color: ${props => (props.isDateSelected ? 'white' : 'black')};
+  border-radius: 100%;
 `;
