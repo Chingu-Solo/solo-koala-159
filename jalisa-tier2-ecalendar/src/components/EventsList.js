@@ -90,13 +90,13 @@ const SignIn = styled.div`
 
 const DayOfWeek = styled.div`
   font-weight: 400;
-  font-size: 1.2em;
+  font-size: 1.3em;
   align-self: end;
 `;
 
 const MonthDate = styled.div`
   font-weight: 400;
-  font-size: 1.2em;
+  font-size: 1.3em;
 `;
 
 const EventsListContainer = styled.div`

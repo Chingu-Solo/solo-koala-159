@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import {
-  getCurrentYear,
-  getCurrentMonthFull,
-  getMonthAbbreviated,
+  getAbbreviatedMonthNames,
   getWeekdaysShort,
-  getDaysInMonth,
   getFirstDayOfMonth,
   getLastDayOfMonth
 } from '../utilities/calendarUtils';
@@ -14,12 +11,19 @@ const Calendar = () => {
   const [date, setDate] = useState(new Date());
 
   const numberOfDaysInMonth = getFirstDayOfMonth(date).getDate();
-
   const emptyDaysInMonth = getLastDayOfMonth(date).getDay();
 
-  const leftArrowClickedHandler = () => {};
+  const leftArrowClickedHandler = () => {
+    const date = new Date();
+    date.setMonth(date.getMonth() - 1);
+    setDate(date);
+  };
 
-  const rightArrowClickedHandler = () => {};
+  const rightArrowClickedHandler = () => {
+    const date = new Date();
+    date.setMonth(date.getMonth() + 1);
+    setDate(date);
+  };
 
   return (
     <CalendarContainer>
@@ -32,9 +36,11 @@ const Calendar = () => {
           onClick={leftArrowClickedHandler}
           src={require('../assets/images/arrow-left.png')}
         />
-        <PreviousMonth>{getMonthAbbreviated().slice(0, 1)}</PreviousMonth>
-        <CurrentMonth>{getMonthAbbreviated().slice(1, 2)}</CurrentMonth>
-        <NextMonth>{getMonthAbbreviated().slice(2, 3)}</NextMonth>
+        <PreviousMonth>
+          {getAbbreviatedMonthNames[date.getMonth() - 1]}
+        </PreviousMonth>
+        <CurrentMonth>{getAbbreviatedMonthNames[date.getMonth()]}</CurrentMonth>
+        <NextMonth>{getAbbreviatedMonthNames[date.getMonth() + 1]}</NextMonth>
         <RightArrow
           onClick={rightArrowClickedHandler}
           src={require('../assets/images/arrow-right.png')}
@@ -78,9 +84,8 @@ const CalendarHeader = styled.div`
   h2 {
     grid-row: 1/2;
     grid-column: 5/6;
-
     font-weight: 400;
-    font-size: 1.2em;
+    font-size: 1.3em;
   }
 `;
 
@@ -108,17 +113,17 @@ const RightArrow = styled.img`
 `;
 
 const PreviousMonth = styled.div`
-  font-size: 1.2em;
+  font-size: 1.3em;
   color: #888;
   padding-right: 30px;
 `;
 
 const CurrentMonth = styled.div`
-  font-size: 1.3em;
+  font-size: 1.4em;
 `;
 
 const NextMonth = styled.div`
-  font-size: 1.2em;
+  font-size: 1.3em;
   color: #888;
   padding-left: 30px;
 `;
@@ -130,6 +135,7 @@ const DayOfWeek = styled.div`
   grid-template-columns: repeat(7, 1fr);
   padding-top: 20px;
   text-transform: uppercase;
+  font-size: 1.1em;
 `;
 
 const DateGrid = styled.div`
@@ -141,8 +147,8 @@ const DateGrid = styled.div`
     outline: none;
     border: none;
     cursor: pointer;
-    height: 50px;
-    font-weight: 400;
+    height: 80px;
     font-size: 1.2em;
+    font-weight: ${props => (props.currentDate ? '600' : '400')};
   }
 `;

@@ -8,31 +8,31 @@ const EventForm = () => {
         <ul>
           <li>
             <label for="title">Title:</label>
-            <input type="text" name="title" value="" />
+            <input type="text" name="title" />
           </li>
           <li>
             <label for="startDt">Start Date:</label>
-            <input type="date" name="startDt" value="" />
+            <input type="date" name="startDt" />
             <label for="endDt">End Date:</label>
-            <input type="date" name="endDt" value="" />
+            <input type="date" name="endDt" />
           </li>
           <li>
             <label for="begins">Begins:</label>
-            <input type="time" name="begins" value="" />
+            <input type="time" name="begins" />
             <label for="ends">Ends:</label>
-            <input type="time" name="ends" value="" />
+            <input type="time" name="ends" />
           </li>
           <li>
             <label for="people">People:</label>
-            <input type="text" name="people" value="" />
+            <input type="text" name="people" />
           </li>
           <li>
             <label for="location">Location:</label>
-            <input type="text" name="location" value="" />
+            <input type="text" name="location" />
           </li>
           <li>
             <label for="description">Description:</label>
-            <input type="text" name="description" value="" />
+            <input type="text" name="description" />
           </li>
         </ul>
         <AddEventButton>Add Event</AddEventButton>
