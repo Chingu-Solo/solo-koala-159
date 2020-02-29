@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const EventForm = () => {
   return (
     <EventFormContainer>
-      <form action="" method="post">
+      <form>
         <ul>
           <li>
             <label for="title">Title:</label>
@@ -34,8 +34,10 @@ const EventForm = () => {
             <label for="description">Description:</label>
             <input type="text" name="description" />
           </li>
+          <li>
+            <AddEventButton>Add Event</AddEventButton>
+          </li>
         </ul>
-        <AddEventButton>Add Event</AddEventButton>
       </form>
     </EventFormContainer>
   );
@@ -48,6 +50,8 @@ const EventFormContainer = styled.div`
   border-radius: 10px;
 
   form {
+    width: 100%;
+    
     ul {
       list-style-type: none;
       li {
@@ -73,6 +77,10 @@ const EventFormContainer = styled.div`
           margin-right: 20px;
         }
       }
+      li:last-child {
+        text-align: center;
+        padding-top: 30px;
+      }
     }
   }
 `;
@@ -84,4 +92,5 @@ const AddEventButton = styled.button`
   color: white;
   background-color: #188665;
   font-size: 1.1em;
+  font-weight: 600;
 `;

@@ -9,9 +9,11 @@ import {
 import EventsPanelImage from '../assets/images/winter.jpeg';
 import Modal from './UI/Modal';
 import EventForm from './EventForm';
+import SignInForm from './SignInForm';
 
 const EventsList = () => {
   const [showEventModal, setShowEventModal] = useState(false);
+  const [showSignInModal, setShowSignInModal] = useState(false);
 
   const [eventsList, setEventsList] = useState([
     {
@@ -36,10 +38,18 @@ const EventsList = () => {
     setShowEventModal(false);
   };
 
+  const signInClickedEventHandler = () => {
+    setShowSignInModal(true);
+  };
+
+  const closeSignInModalHandler = () => {
+    setShowSignInModal(false);
+  }
+
   return (
     <Fragment>
       <EventsPanel>
-        <SignIn>sign in</SignIn>
+        <SignIn onClick={signInClickedEventHandler}>sign in</SignIn>
         <DayOfWeek>{getCurrentWeekday()}</DayOfWeek>
         <MonthDate>{monthDate}</MonthDate>
         <EventsListContainer>
@@ -61,6 +71,12 @@ const EventsList = () => {
         onCloseButtonClicked={closeEventModalHandler}
       >
         <EventForm />
+      </Modal>
+      <Modal
+        showModal={showSignInModal}
+        onCloseButtonClicked={closeSignInModalHandler}
+      >
+        <SignInForm />
       </Modal>
     </Fragment>
   );
