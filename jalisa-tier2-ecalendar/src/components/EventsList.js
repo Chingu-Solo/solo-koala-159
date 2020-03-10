@@ -2,7 +2,8 @@ import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
 import {
   getMonthFull,
-  getWeekday
+  getWeekday,
+  getSeason
 } from '../utilities/calendarUtils';
 
 import WinterImage from '../assets/images/winter.jpeg';
@@ -14,7 +15,7 @@ import Modal from './UI/Modal';
 import EventForm from './EventForm';
 import SignInForm from './SignInForm';
 
-const EventsList = ({ selectedDate }) => {
+const EventsList = ({ date, selectedDate }) => {
   const [showEventModal, setShowEventModal] = useState(false);
   const [showSignInModal, setShowSignInModal] = useState(false);
 
@@ -32,6 +33,19 @@ const EventsList = ({ selectedDate }) => {
   ]);
 
   const monthDate = `${getMonthFull(selectedDate)} ${selectedDate.getDate()}`;
+  const season = getSeason(date.getMonth());
+
+  const getSeasonImage = () => {
+    if (season === 'winter') {
+      return WinterImage;
+    } else if (season === 'spring') {
+      return SpringImage;
+    } else if (season === 'summer') {
+      return SummerImage;
+    } else if (season === 'fall') {
+      return FallImage;
+    }
+  };
 
   const addEventClickedHandler = () => {
     setShowEventModal(true);
@@ -51,7 +65,7 @@ const EventsList = ({ selectedDate }) => {
 
   return (
     <Fragment>
-      <EventsPanel>
+      <EventsPanel seasonImage={getSeasonImage()}>
         <SignIn onClick={signInClickedEventHandler}>sign in</SignIn>
         <DayOfWeek>{getWeekday(selectedDate)}</DayOfWeek>
         <MonthDate>{monthDate}</MonthDate>
@@ -93,7 +107,7 @@ const EventsPanel = styled.div`
   height: calc(95vh - 50px);
   padding-left: 30px;
   margin-left: 50px;
-  background-image: url(${SummerImage});
+  background-image: url(${props => props.seasonImage});
   background-repeat: no-repeat;
   background-attachment: center;
 `;

@@ -12,7 +12,7 @@ const CalendarPage = () => {
   return (
     <Fragment>
       <Calendar today={today} date={date} setDate={setDate} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
-      <EventsList selectedDate={selectedDate} />
+      <EventsList date={date} selectedDate={selectedDate} />
     </Fragment>
   );
 };

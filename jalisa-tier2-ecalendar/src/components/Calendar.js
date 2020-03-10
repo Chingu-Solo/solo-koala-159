@@ -10,7 +10,6 @@ import {
 } from '../utilities/calendarUtils';
 
 const Calendar = ({ today, date, setDate, selectedDate, setSelectedDate }) => {
-
   const numberOfDaysInMonth = getFirstDayOfMonth(date).getDate();
   const emptyDaysInMonth = getLastDayOfMonth(date).getDay();
 

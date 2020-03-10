@@ -1,5 +1,4 @@
-
-export const getMonthFull = (date) => {
+export const getMonthFull = date => {
   let month = [
     'January',
     'February',
@@ -33,7 +32,7 @@ export const getAbbreviatedMonthNames = [
   'Dec'
 ];
 
-export const getWeekday = (date) => {
+export const getWeekday = date => {
   let weekday = [
     'Sunday',
     'Monday',
@@ -71,14 +70,41 @@ export const getLastDayOfMonth = date => {
   return lastDayOfMonth;
 };
 
-export const getPreviousMonth = (date) => {
+export const getPreviousMonth = date => {
   const prevMonthDate = new Date(date);
   prevMonthDate.setMonth(prevMonthDate.getMonth() - 1);
   return prevMonthDate;
 };
 
-export const getNextMonth = (date) => {
+export const getNextMonth = date => {
   const nextMonthDate = new Date(date);
   nextMonthDate.setMonth(nextMonthDate.getMonth() + 1);
   return nextMonthDate;
+};
+
+export const getSeason = date => {
+  let season;
+  switch (date) {
+    case 11:
+    case 0:
+    case 1:
+      season = 'winter';
+      break;
+    case 2:
+    case 3:
+    case 4:
+      season = 'spring';
+      break;
+    case 5:
+    case 6:
+    case 7:
+      season = 'summer';
+      break;
+    case 8:
+    case 9:
+    case 10:
+      season = 'fall';
+      break;
+  }
+  return season;
 };
