@@ -1,17 +1,20 @@
 import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
 import {
-  getCurrentDate,
-  getCurrentMonthFull,
-  getCurrentWeekday
+  getMonthFull,
+  getWeekday
 } from '../utilities/calendarUtils';
 
-import EventsPanelImage from '../assets/images/winter.jpeg';
+import WinterImage from '../assets/images/winter.jpeg';
+import SpringImage from '../assets/images/spring.jpeg';
+import SummerImage from '../assets/images/summer.jpeg';
+import FallImage from '../assets/images/fall.jpeg';
+
 import Modal from './UI/Modal';
 import EventForm from './EventForm';
 import SignInForm from './SignInForm';
 
-const EventsList = () => {
+const EventsList = ({ selectedDate }) => {
   const [showEventModal, setShowEventModal] = useState(false);
   const [showSignInModal, setShowSignInModal] = useState(false);
 
@@ -28,7 +31,7 @@ const EventsList = () => {
     }
   ]);
 
-  const monthDate = `${getCurrentMonthFull()} ${getCurrentDate()}`;
+  const monthDate = `${getMonthFull(selectedDate)} ${selectedDate.getDate()}`;
 
   const addEventClickedHandler = () => {
     setShowEventModal(true);
@@ -44,13 +47,13 @@ const EventsList = () => {
 
   const closeSignInModalHandler = () => {
     setShowSignInModal(false);
-  }
+  };
 
   return (
     <Fragment>
       <EventsPanel>
         <SignIn onClick={signInClickedEventHandler}>sign in</SignIn>
-        <DayOfWeek>{getCurrentWeekday()}</DayOfWeek>
+        <DayOfWeek>{getWeekday(selectedDate)}</DayOfWeek>
         <MonthDate>{monthDate}</MonthDate>
         <EventsListContainer>
           <ul>
@@ -90,7 +93,7 @@ const EventsPanel = styled.div`
   height: calc(95vh - 50px);
   padding-left: 30px;
   margin-left: 50px;
-  background-image: url(${EventsPanelImage});
+  background-image: url(${SummerImage});
   background-repeat: no-repeat;
   background-attachment: center;
 `;

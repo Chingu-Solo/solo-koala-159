@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import {
   getAbbreviatedMonthNames,
@@ -9,12 +9,7 @@ import {
   getNextMonth
 } from '../utilities/calendarUtils';
 
-const Calendar = () => {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const [date, setDate] = useState(new Date(today));
-  const [selectedDate, setSelectedDate] = useState(date);
+const Calendar = ({ today, date, setDate, selectedDate, setSelectedDate }) => {
 
   const numberOfDaysInMonth = getFirstDayOfMonth(date).getDate();
   const emptyDaysInMonth = getLastDayOfMonth(date).getDay();

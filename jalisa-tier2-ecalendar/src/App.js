@@ -2,13 +2,13 @@ import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import Calendar from './components/Calendar';
 import EventsList from './components/EventsList';
+import CalendarPage from './components/CalendarPage';
 
 function App() {
   return (
     <Fragment>
       <AppContainer>
-        <Calendar />
-        <EventsList />
+        <CalendarPage />
       </AppContainer>
     </Fragment>
   );

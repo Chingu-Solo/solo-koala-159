@@ -1,7 +1,5 @@
-export const getCurrentDate = () => new Date().getDate();
 
-export const getCurrentMonthFull = () => {
-  let date = new Date();
+export const getMonthFull = (date) => {
   let month = [
     'January',
     'February',
@@ -35,8 +33,7 @@ export const getAbbreviatedMonthNames = [
   'Dec'
 ];
 
-export const getCurrentWeekday = () => {
-  let date = new Date();
+export const getWeekday = (date) => {
   let weekday = [
     'Sunday',
     'Monday',
