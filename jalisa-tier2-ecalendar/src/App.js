@@ -18,6 +18,5 @@ export default App;
 
 const AppContainer = styled.div`
   display: flex;
-  justify-content: center;
-  margin-top: 50px;
+  justify-content: space-between;
 `;

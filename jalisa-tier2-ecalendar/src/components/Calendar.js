@@ -83,7 +83,9 @@ const Calendar = ({ today, date, setDate, selectedDate, setSelectedDate }) => {
 export default Calendar;
 
 const CalendarContainer = styled.div`
-  width: 50%;
+  width: 60%;
+  margin-left: auto;
+  padding-top: 50px;
 `;
 
 const CalendarHeader = styled.div`
@@ -173,7 +175,7 @@ const DateCell = styled.button`
   margin: 1vw;
   justify-self: center;
   font-weight: ${props => (props.isCurrentDate ? '600' : '400')};
-  font-size: ${props => (props.isCurrentDate ? '1.4vw' : '1.2vw')};
+  font-size: ${props => (props.isCurrentDate ? '1.5vw' : '1.3vw')};
   border: ${props => (props.isDateSelected ? '1px solid #188665' : 'none')};
   background-color: ${props => (props.isDateSelected ? '#188665' : 'white')};
   color: ${props => (props.isDateSelected ? 'white' : 'black')};

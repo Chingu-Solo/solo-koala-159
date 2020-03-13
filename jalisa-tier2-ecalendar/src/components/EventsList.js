@@ -103,13 +103,19 @@ export default EventsList;
 
 const EventsPanel = styled.div`
   display: block;
-  width: 25%;
+  position: relative;
+  width: 30%;
   height: calc(95vh - 50px);
   padding-left: 30px;
+  padding-top: 50px;
   margin-left: 50px;
   background-image: url(${props => props.seasonImage});
   background-repeat: no-repeat;
   background-attachment: center;
+
+  ${'' /* @media (max-width: 1040px) {
+    position: fixed;
+  } */}
 `;
 
 const SignIn = styled.div`
