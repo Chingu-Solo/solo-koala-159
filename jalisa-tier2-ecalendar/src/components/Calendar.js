@@ -86,6 +86,11 @@ const CalendarContainer = styled.div`
   width: 60%;
   margin-left: auto;
   padding-top: 50px;
+
+  @media (max-width: 1040px) {
+    margin: 0 auto;
+    width: 90%;
+  }
 `;
 
 const CalendarHeader = styled.div`

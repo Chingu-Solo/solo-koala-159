@@ -102,20 +102,23 @@ const EventsList = ({ date, selectedDate }) => {
 export default EventsList;
 
 const EventsPanel = styled.div`
-  display: block;
-  position: relative;
   width: 30%;
-  height: calc(95vh - 50px);
   padding-left: 30px;
   padding-top: 50px;
   margin-left: 50px;
   background-image: url(${props => props.seasonImage});
   background-repeat: no-repeat;
   background-attachment: center;
+  background-size: cover;
 
-  ${'' /* @media (max-width: 1040px) {
-    position: fixed;
-  } */}
+  @media (max-width: 1040px) {
+    position: absolute;
+    bottom: 0;
+    margin-left: 0;
+    width: calc(100% - 30px);
+    padding-top: 5px;
+    background-position: center;
+  }
 `;
 
 const SignIn = styled.div`
@@ -125,6 +128,10 @@ const SignIn = styled.div`
   margin-right: 15px;
   padding-bottom: 40px;
   cursor: pointer;
+
+  @media (max-width: 1040px) {
+    padding-bottom: 0px;
+  }
 `;
 
 const DayOfWeek = styled.div`
@@ -155,6 +162,11 @@ const EventsListContainer = styled.div`
       color: white;
     }
   }
+
+  @media (max-width: 1040px) {
+    width: 95%;
+    height: 50%;
+  }
 `;
 
 const AddEvent = styled.div`
@@ -162,6 +174,7 @@ const AddEvent = styled.div`
   justify-content: center;
   margin-right: 30px;
   margin-top: 35px;
+  margin-bottom: 35px;
 `;
 
 const AddEventIcon = styled.img`
