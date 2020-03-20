@@ -89,7 +89,7 @@ const CalendarContainer = styled.div`
 
   @media (max-width: 768px) {
     padding-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     width: 90%;
   }
 `;
@@ -245,5 +245,10 @@ const DateCell = styled.button`
   @media (max-width: 420px) {
     width: 1rem;
     height: 1rem;
+  }
+
+  @media (max-width: 320px) {
+    width: 0.8rem;
+    height: 0.8rem;
   }
 `;

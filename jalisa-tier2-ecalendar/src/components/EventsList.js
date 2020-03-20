@@ -21,14 +21,37 @@ const EventsList = ({ date, selectedDate }) => {
 
   const [eventsList, setEventsList] = useState([
     {
-      title: '',
-      startDate: '',
-      endDate: '',
-      begins: '',
-      ends: '',
-      people: '',
-      location: '',
-      description: ''
+      id: 1,
+      title: 'Goat Yoga',
+      startDate: '3/20/2020',
+      endDate: '3/20/2020',
+      begins: '10:30 AM',
+      ends: '11:30 AM',
+      people: 'me',
+      location: 'gym',
+      description: 'Yoga with goats'
+    },
+    {
+      id: 2,
+      title: 'Hot Yoga',
+      startDate: '3/20/2020',
+      endDate: '3/20/2020',
+      begins: '11:30 AM',
+      ends: '12:30 PM',
+      people: 'me',
+      location: 'gym',
+      description: 'Yoga in a hot room'
+    },
+    {
+      id: 3,
+      title: 'Perpetual Yoga',
+      startDate: '3/20/2020',
+      endDate: '3/20/2020',
+      begins: '12:30 PM',
+      ends: '1:30 PM',
+      people: 'me',
+      location: 'gym',
+      description: 'Yoga'
     }
   ]);
 
@@ -71,9 +94,9 @@ const EventsList = ({ date, selectedDate }) => {
         <MonthDate>{monthDate}</MonthDate>
         <EventsListContainer>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
+            {eventsList.map(event => (
+              <li key={event.id}>{event.begins} - {event.title}</li>
+            ))}
           </ul>
         </EventsListContainer>
         <AddEvent>
@@ -111,7 +134,6 @@ const EventsPanel = styled.div`
   background-size: cover;
 
   @media (max-width: 768px) {
-    bottom: 0;
     margin-left: 0;
     width: calc(100% - 30px);
     padding-top: 5px;
@@ -145,13 +167,14 @@ const MonthDate = styled.div`
 
 const EventsListContainer = styled.div`
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.65);
   margin-top: 15px;
   margin-right: 30px;
   height: 55vh;
   overflow: auto;
   font-size: 1.1rem;
-  line-height: 1.8;
+  line-height: 2;
+  font-weight: 600;
 
   ul {
     padding: 0px 20px;
@@ -171,8 +194,7 @@ const AddEvent = styled.div`
   display: flex;
   justify-content: center;
   margin-right: 30px;
-  margin-top: 35px;
-  margin-bottom: 35px;
+  padding: 35px 0;
 `;
 
 const AddEventIcon = styled.img`
