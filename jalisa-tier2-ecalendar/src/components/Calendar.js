@@ -87,7 +87,7 @@ const CalendarContainer = styled.div`
   margin: 0 auto;
   padding-top: 50px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     padding-top: 0;
     margin-bottom: 20px;
     width: 90%;
@@ -243,12 +243,12 @@ const DateCell = styled.button`
   }
 
   @media (max-width: 420px) {
-    width: 1rem;
-    height: 1rem;
+    margin: 0.8rem;
   }
 
-  @media (max-width: 320px) {
-    width: 0.8rem;
-    height: 0.8rem;
+  @media (max-width: 380px) {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0.2rem;
   }
 `;

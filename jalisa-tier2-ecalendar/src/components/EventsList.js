@@ -133,7 +133,7 @@ const EventsPanel = styled.div`
   background-attachment: center;
   background-size: cover;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     margin-left: 0;
     width: calc(100% - 30px);
     padding-top: 5px;
@@ -149,7 +149,7 @@ const SignIn = styled.div`
   padding-bottom: 40px;
   cursor: pointer;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     padding-bottom: 0px;
   }
 `;
@@ -184,7 +184,7 @@ const EventsListContainer = styled.div`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     width: 95%;
     height: 50%;
   }

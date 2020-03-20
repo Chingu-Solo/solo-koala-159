@@ -1,14 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import CalendarPage from './components/CalendarPage';
 
 function App() {
   return (
-    <Fragment>
-      <AppContainer>
-        <CalendarPage />
-      </AppContainer>
-    </Fragment>
+    <AppContainer>
+      <CalendarPage />
+    </AppContainer>
   );
 }
 
@@ -19,7 +17,7 @@ const AppContainer = styled.div`
   justify-content: space-between;
   height: 100%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     display: block;
     justify-content: center;
   }
