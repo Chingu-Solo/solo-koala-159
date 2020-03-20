@@ -51,12 +51,6 @@ export const getWeekdaysShort = () => {
   return weekdays;
 };
 
-// export const getCurrentYear = () => new Date().getFullYear();
-
-// export const getDaysInMonth = (month, year) => {
-//   return new Date(year, month, 0).getDate();
-// };
-
 export const getFirstDayOfMonth = date => {
   const firstDayOfMonth = new Date(date);
   firstDayOfMonth.setMonth(firstDayOfMonth.getMonth() + 1);

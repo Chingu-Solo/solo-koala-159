@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import Calendar from './components/Calendar';
-import EventsList from './components/EventsList';
 import CalendarPage from './components/CalendarPage';
 
 function App() {
@@ -21,7 +19,7 @@ const AppContainer = styled.div`
   justify-content: space-between;
   height: 100%;
 
-  @media (max-width: 1040px) {
+  @media (max-width: 768px) {
     display: block;
     justify-content: center;
   }

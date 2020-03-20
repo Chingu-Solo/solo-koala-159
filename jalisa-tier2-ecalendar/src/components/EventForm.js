@@ -8,13 +8,13 @@ const EventForm = () => {
         <ul>
           <li>
             <label for="title">Title:</label>
-            <input type="text" name="title" />
+            <input type="text" name="title" required />
           </li>
           <li>
             <label for="startDt">Start Date:</label>
-            <input type="date" name="startDt" />
+            <input type="date" name="startDt" required />
             <label for="endDt">End Date:</label>
-            <input type="date" name="endDt" />
+            <input type="date" name="endDt" required />
           </li>
           <li>
             <label for="begins">Begins:</label>

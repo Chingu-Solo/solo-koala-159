@@ -105,14 +105,12 @@ const EventsPanel = styled.div`
   width: 30%;
   padding-left: 30px;
   padding-top: 50px;
-  margin-left: 50px;
   background-image: url(${props => props.seasonImage});
   background-repeat: no-repeat;
   background-attachment: center;
   background-size: cover;
 
-  @media (max-width: 1040px) {
-    position: absolute;
+  @media (max-width: 768px) {
     bottom: 0;
     margin-left: 0;
     width: calc(100% - 30px);
@@ -123,26 +121,26 @@ const EventsPanel = styled.div`
 
 const SignIn = styled.div`
   text-align: right;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   margin-top: 15px;
   margin-right: 15px;
   padding-bottom: 40px;
   cursor: pointer;
 
-  @media (max-width: 1040px) {
+  @media (max-width: 768px) {
     padding-bottom: 0px;
   }
 `;
 
 const DayOfWeek = styled.div`
   font-weight: 400;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   align-self: end;
 `;
 
 const MonthDate = styled.div`
   font-weight: 400;
-  font-size: 1.3em;
+  font-size: 1.3rem;
 `;
 
 const EventsListContainer = styled.div`
@@ -152,7 +150,7 @@ const EventsListContainer = styled.div`
   margin-right: 30px;
   height: 55vh;
   overflow: auto;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   line-height: 1.8;
 
   ul {
@@ -163,7 +161,7 @@ const EventsListContainer = styled.div`
     }
   }
 
-  @media (max-width: 1040px) {
+  @media (max-width: 768px) {
     width: 95%;
     height: 50%;
   }
