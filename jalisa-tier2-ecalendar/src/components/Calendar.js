@@ -58,7 +58,7 @@ const Calendar = ({ today, date, setDate, selectedDate, setSelectedDate }) => {
       </DayOfWeek>
       <DateGrid>
         {Array.from(Array(emptyDaysInMonth), () => (
-          <div></div>
+          <DateCell style={previousMonthDateCell}></DateCell>
         ))}
         {Array.from(Array(numberOfDaysInMonth), (_, i) => {
           const cellDate = new Date(date);
@@ -213,6 +213,10 @@ const DateGrid = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+const previousMonthDateCell = {
+  color: '#ddd'
+};
 
 const DateCell = styled.button`
   outline: none;

@@ -95,7 +95,9 @@ const EventsList = ({ date, selectedDate }) => {
         <EventsListContainer>
           <ul>
             {eventsList.map(event => (
-              <li key={event.id}>{event.begins} - {event.title}</li>
+              <li key={event.id}>
+                {event.begins} - {event.title}
+              </li>
             ))}
           </ul>
         </EventsListContainer>
@@ -143,7 +145,7 @@ const EventsPanel = styled.div`
 
 const SignIn = styled.div`
   text-align: right;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   margin-top: 15px;
   margin-right: 15px;
   padding-bottom: 40px;
@@ -151,18 +153,27 @@ const SignIn = styled.div`
 
   @media (max-width: 767px) {
     padding-bottom: 0px;
+    font-size: 1.2rem;
   }
 `;
 
 const DayOfWeek = styled.div`
   font-weight: 400;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   align-self: end;
+
+  @media (max-width: 767px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const MonthDate = styled.div`
   font-weight: 400;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+
+  @media (max-width: 767px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const EventsListContainer = styled.div`
@@ -172,7 +183,7 @@ const EventsListContainer = styled.div`
   margin-right: 30px;
   height: 55vh;
   overflow: auto;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 2;
   font-weight: 600;
 
@@ -182,6 +193,10 @@ const EventsListContainer = styled.div`
     li {
       color: white;
     }
+  }
+
+  @media (max-width: 1020px) {
+    font-size: 1rem;
   }
 
   @media (max-width: 767px) {
