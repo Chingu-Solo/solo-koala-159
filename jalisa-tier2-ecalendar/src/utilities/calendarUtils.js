@@ -51,17 +51,17 @@ export const getWeekdaysShort = () => {
   return weekdays;
 };
 
-export const getFirstDayOfMonth = date => {
-  const firstDayOfMonth = new Date(date);
-  firstDayOfMonth.setMonth(firstDayOfMonth.getMonth() + 1);
-  firstDayOfMonth.setDate(0);
-  return firstDayOfMonth;
-};
-
 export const getLastDayOfMonth = date => {
   const lastDayOfMonth = new Date(date);
-  lastDayOfMonth.setDate(1);
+  lastDayOfMonth.setMonth(lastDayOfMonth.getMonth() + 1);
+  lastDayOfMonth.setDate(0);
   return lastDayOfMonth;
+};
+
+export const getFirstDayOfMonth = date => {
+  const fistDayOfMonth = new Date(date);
+  fistDayOfMonth.setDate(1);
+  return fistDayOfMonth;
 };
 
 export const getPreviousMonth = date => {

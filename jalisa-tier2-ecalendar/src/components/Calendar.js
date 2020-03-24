@@ -3,18 +3,20 @@ import styled from 'styled-components';
 import {
   getAbbreviatedMonthNames,
   getWeekdaysShort,
-  getFirstDayOfMonth,
   getLastDayOfMonth,
+  getFirstDayOfMonth,
   getPreviousMonth,
   getNextMonth
 } from '../utilities/calendarUtils';
 
 const Calendar = ({ today, date, setDate, selectedDate, setSelectedDate }) => {
-  const numberOfDaysInMonth = getFirstDayOfMonth(date).getDate();
-  const emptyDaysInMonth = getLastDayOfMonth(date).getDay();
-
+  const emptyDaysInMonth = getFirstDayOfMonth(date).getDay();
   const previousMonthDate = getPreviousMonth(date);
   const nextMonthDate = getNextMonth(date);
+  const numberOfDaysInMonth = getLastDayOfMonth(date).getDate();
+  const numberOfDaysInPreviousMonth = getLastDayOfMonth(
+    previousMonthDate
+  ).getDate();
 
   const leftArrowClickedHandler = () => {
     setDate(previousMonthDate);
@@ -27,6 +29,41 @@ const Calendar = ({ today, date, setDate, selectedDate, setSelectedDate }) => {
   const selectedDateHandler = newSelectedDate => {
     setSelectedDate(newSelectedDate);
   };
+
+  const calendarCells = [];
+  const firstDayInPreviousMonthToDisplay =
+    numberOfDaysInPreviousMonth - emptyDaysInMonth + 1;
+
+  const previousMonthCells = Array.from(Array(emptyDaysInMonth), (_, i) => (
+    <DateCell className="subdued">
+      {firstDayInPreviousMonthToDisplay + i}
+    </DateCell>
+  ));
+
+  const currentMonthCells = Array.from(Array(numberOfDaysInMonth), (_, i) => {
+    const cellDate = new Date(date);
+    cellDate.setDate(i + 1);
+    return (
+      <DateCell
+        onClick={() => selectedDateHandler(cellDate)}
+        isDateSelected={selectedDate.toDateString() === cellDate.toDateString()}
+        isCurrentDate={cellDate.toDateString() === today.toDateString()}
+      >
+        {cellDate.getDate()}
+      </DateCell>
+    );
+  });
+
+  calendarCells.push(...previousMonthCells, ...currentMonthCells);
+
+  const emptyDaysForNextMonth = 7 - (calendarCells.length % 7);
+  if (emptyDaysForNextMonth < 7) {
+    const nextMonthCells = Array.from(Array(emptyDaysForNextMonth), (_, i) => (
+      <DateCell className="subdued">{i + 1}</DateCell>
+    ));
+
+    calendarCells.push(...nextMonthCells);
+  }
 
   return (
     <CalendarContainer>
@@ -56,26 +93,7 @@ const Calendar = ({ today, date, setDate, selectedDate, setSelectedDate }) => {
           return <div key={day}>{day}</div>;
         })}
       </DayOfWeek>
-      <DateGrid>
-        {Array.from(Array(emptyDaysInMonth), () => (
-          <DateCell style={previousMonthDateCell}></DateCell>
-        ))}
-        {Array.from(Array(numberOfDaysInMonth), (_, i) => {
-          const cellDate = new Date(date);
-          cellDate.setDate(i + 1);
-          return (
-            <DateCell
-              onClick={() => selectedDateHandler(cellDate)}
-              isDateSelected={
-                selectedDate.toDateString() === cellDate.toDateString()
-              }
-              isCurrentDate={cellDate.toDateString() === today.toDateString()}
-            >
-              {cellDate.getDate()}
-            </DateCell>
-          );
-        })}
-      </DateGrid>
+      <DateGrid>{calendarCells}</DateGrid>
     </CalendarContainer>
   );
 };
@@ -214,10 +232,6 @@ const DateGrid = styled.div`
   justify-content: center;
 `;
 
-const previousMonthDateCell = {
-  color: '#ddd'
-};
-
 const DateCell = styled.button`
   outline: none;
   border: none;
@@ -233,6 +247,10 @@ const DateCell = styled.button`
   color: ${props => (props.isDateSelected ? 'white' : 'black')};
   border-radius: 100%;
   padding: 0;
+
+  &.subdued {
+    color: #ddd;
+  }
 
   @media (min-width: 581px) and (max-width: 900px) {
     width: 2.5rem;
