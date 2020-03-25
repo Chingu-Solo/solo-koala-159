@@ -99,6 +99,8 @@ export const getSeason = date => {
     case 10:
       season = 'fall';
       break;
+    default:
+      season = 'spring';
   }
   return season;
 };

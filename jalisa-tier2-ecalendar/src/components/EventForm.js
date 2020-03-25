@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const EventForm = () => {
@@ -7,31 +7,31 @@ const EventForm = () => {
       <form>
         <ul>
           <li>
-            <label for="title">Title:</label>
+            <label htmlFor="title">Title:</label>
             <input type="text" name="title" required />
           </li>
           <li>
-            <label for="startDt">Start Date:</label>
+            <label htmlFor="startDt">Start Date:</label>
             <input type="date" name="startDt" required />
-            <label for="endDt">End Date:</label>
+            <label htmlFor="endDt">End Date:</label>
             <input type="date" name="endDt" required />
           </li>
           <li>
-            <label for="begins">Begins:</label>
+            <label htmlFor="begins">Begins:</label>
             <input type="time" name="begins" />
-            <label for="ends">Ends:</label>
+            <label htmlFor="ends">Ends:</label>
             <input type="time" name="ends" />
           </li>
           <li>
-            <label for="people">People:</label>
+            <label htmlFor="people">People:</label>
             <input type="text" name="people" />
           </li>
           <li>
-            <label for="location">Location:</label>
+            <label htmlFor="location">Location:</label>
             <input type="text" name="location" />
           </li>
           <li>
-            <label for="description">Description:</label>
+            <label htmlFor="description">Description:</label>
             <input type="text" name="description" />
           </li>
           <li>

@@ -31,11 +31,11 @@ const Calendar = ({ today, date, setDate, selectedDate, setSelectedDate }) => {
   };
 
   const calendarCells = [];
-  const firstDayInPreviousMonthToDisplay =
-    numberOfDaysInPreviousMonth - emptyDaysInMonth + 1;
+  const firstDayInPreviousMonthToDisplay = numberOfDaysInPreviousMonth - emptyDaysInMonth + 1;
+  let counter = 0;
 
   const previousMonthCells = Array.from(Array(emptyDaysInMonth), (_, i) => (
-    <DateCell className="subdued">
+    <DateCell key={'DateCell-' + counter++} className="subdued">
       {firstDayInPreviousMonthToDisplay + i}
     </DateCell>
   ));
@@ -45,6 +45,7 @@ const Calendar = ({ today, date, setDate, selectedDate, setSelectedDate }) => {
     cellDate.setDate(i + 1);
     return (
       <DateCell
+        key={'DateCell-' + counter++}
         onClick={() => selectedDateHandler(cellDate)}
         isDateSelected={selectedDate.toDateString() === cellDate.toDateString()}
         isCurrentDate={cellDate.toDateString() === today.toDateString()}
@@ -59,7 +60,7 @@ const Calendar = ({ today, date, setDate, selectedDate, setSelectedDate }) => {
   const emptyDaysForNextMonth = 7 - (calendarCells.length % 7);
   if (emptyDaysForNextMonth < 7) {
     const nextMonthCells = Array.from(Array(emptyDaysForNextMonth), (_, i) => (
-      <DateCell className="subdued">{i + 1}</DateCell>
+      <DateCell key={'DateCell-' + counter++} className="subdued">{i + 1}</DateCell>
     ));
 
     calendarCells.push(...nextMonthCells);
