@@ -5,8 +5,13 @@ eCalendar
 This is a calendar application with event manager features. It has been built with the React JavaScript framework. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Features
-- Calendar
-- Panel with list of events
+- Calendar displaying the days of the month and days of the week
+- Left and right arrows to cycle through future and past months
+- Panel with list of events (currently showing 3 demo events)
+- Events panel background changes based on the season of the displayed month
+- Plus sign that opens a modal to add a new event
+- Sign in link that opens a modal to enter username and password
+- Fully responsive
 
 ## Running the Project
 From the repo:
