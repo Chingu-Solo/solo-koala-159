@@ -2,7 +2,9 @@
 eCalendar
 
 ## Overview
-This is a calendar application with event manager features. It has been built with the React JavaScript framework. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a calendar application created as a tier 2 Chingu Solo Project. It has been built with the React JavaScript framework. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+###Live Link: https://jalisa-ecalendar.netlify.com/
 
 ## Features
 - Calendar displaying the days of the month and days of the week
