@@ -1,5 +1,4 @@
-## Title
-eCalendar
+## eCalendar
 
 ## Overview
 This is a calendar application created as a tier 2 Chingu Solo Project. It has been built with the React JavaScript framework. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
