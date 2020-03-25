@@ -6,10 +6,10 @@ import {
   getSeason
 } from '../utilities/calendarUtils';
 
-import WinterImage from '../assets/images/winter.jpeg';
-import SpringImage from '../assets/images/spring.jpeg';
-import SummerImage from '../assets/images/summer.jpeg';
-import FallImage from '../assets/images/fall.jpeg';
+import WinterImage from '../assets/images/winter-min.jpeg';
+import SpringImage from '../assets/images/spring-min.jpeg';
+import SummerImage from '../assets/images/summer-min.jpeg';
+import FallImage from '../assets/images/fall-min.jpeg';
 
 import Modal from './UI/Modal';
 import EventForm from './EventForm';
