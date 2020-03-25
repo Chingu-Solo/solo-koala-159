@@ -1,10 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Title
 eCalendar
 
 ## Overview
-This is a calendar application with event manager features. It has been built with the React JavaScript framework.
+This is a calendar application with event manager features. It has been built with the React JavaScript framework. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Features
 ⋅⋅* Calendar
