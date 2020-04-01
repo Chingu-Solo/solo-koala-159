@@ -33,7 +33,10 @@ const SignInFormContainer = styled.div`
     width: 100%;
 
     ul {
+      margin: 0;
+      padding: 0;
       list-style-type: none;
+
       li {
         padding-top: 10px;
         label {
@@ -44,6 +47,11 @@ const SignInFormContainer = styled.div`
           width: 65%;
           border: none;
           border-radius: 5px;
+
+          @media (max-width: 500px) {
+            margin-top: 0.5rem;
+            width: 100%;
+          }
         }
       }
       li:last-child {
@@ -63,4 +71,8 @@ const SignInButton = styled.button`
   background-color: #188665;
   font-size: 1.1em;
   font-weight: 600;
+
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;

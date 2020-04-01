@@ -29,21 +29,26 @@ const ModalContainer = styled.div`
 `;
 
 const ModalContent = styled.div`
+  position: relative;
   background-color: #ddd;
   margin: auto;
   padding: 20px;
   width: 35rem;
 
   @media (max-width: 500px) {
-    width: 25rem;
+    width: 15rem;
   }
 `;
 
 const CloseButton = styled.span`
   color: #aaaaaa;
-  float: right;
   font-size: 28px;
   font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  line-height: 18px;
+  text-align: center;
 
   &:hover,
   &:focus {
