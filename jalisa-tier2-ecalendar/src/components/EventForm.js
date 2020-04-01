@@ -88,6 +88,7 @@ const EventFormContainer = styled.div`
 const AddEventButton = styled.button`
   height: 40px;
   width: 180px;
+  border: none;
   border-radius: 5px;
   color: white;
   background-color: #188665;
