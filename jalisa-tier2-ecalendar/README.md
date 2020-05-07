@@ -18,8 +18,8 @@ This is a calendar application created as a tier 2 Chingu Solo Project. It has b
 From the repo:
 1. Clone this project locally
 2. Run npm install in your bash / command line
-2. cd into jalisa-tier2-ecalendar
-3. Run npm start
+3. cd into jalisa-tier2-ecalendar
+4. Run npm start
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
