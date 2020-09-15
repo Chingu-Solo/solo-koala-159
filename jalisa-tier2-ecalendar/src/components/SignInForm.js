@@ -5,14 +5,13 @@ const SignInForm = () => {
   return (
     <SignInFormContainer>
       <form>
+        <h1>Sign In</h1>
         <ul>
           <li>
-            <label htmlFor="username">Username:</label>
-            <input type="text" name="username" />
+            <input type="text" name="username" placeholder="Username" />
           </li>
           <li>
-            <label htmlFor="password">Password:</label>
-            <input type="password" name="password" />
+            <input type="password" name="password" placeholder="Password" />
           </li>
           <li>
             <SignInButton>Sign In</SignInButton>
@@ -27,29 +26,41 @@ export default SignInForm;
 
 const SignInFormContainer = styled.div`
   display: flex;
+  justify-content: center;
   border-radius: 10px;
 
   form {
+    text-align: center;
     width: 100%;
+
+    h1 {
+      font-size: 1.5rem;
+    }
 
     ul {
       margin: 0;
-      padding: 0;
+      padding: 10px;
       list-style-type: none;
 
       li {
         padding-top: 10px;
+
         label {
           padding-right: 10px;
         }
+
         input {
-          height: 30px;
+          height: 40px;
           width: 65%;
           border: none;
           border-radius: 5px;
+          font-size: 1rem;
+
+          ::placeholder {
+            padding-left: 1rem;
+          }
 
           @media (max-width: 500px) {
-            margin-top: 0.5rem;
             width: 100%;
           }
         }

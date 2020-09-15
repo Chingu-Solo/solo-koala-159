@@ -32,7 +32,7 @@ const ModalContent = styled.div`
   position: relative;
   background-color: #ddd;
   margin: auto;
-  padding: 20px;
+  padding: 30px;
   width: 35rem;
 
   @media (max-width: 500px) {
