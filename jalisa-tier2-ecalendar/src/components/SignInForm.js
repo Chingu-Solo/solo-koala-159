@@ -55,16 +55,14 @@ const SignInFormContainer = styled.div`
           border: none;
           border-radius: 5px;
           font-size: 1rem;
-
-          ::placeholder {
-            padding-left: 1rem;
-          }
+          padding-left: 1rem;
 
           @media (max-width: 500px) {
             width: 100%;
           }
         }
       }
+      
       li:last-child {
         text-align: center;
         padding-top: 30px;

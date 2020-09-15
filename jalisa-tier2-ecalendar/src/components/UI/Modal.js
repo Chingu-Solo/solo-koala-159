@@ -18,7 +18,7 @@ const ModalContainer = styled.div`
   display: ${props => (props.showModal ? 'block' : 'none')};
   position: fixed;
   z-index: 1;
-  padding-top: 200px;
+  padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;
@@ -35,8 +35,8 @@ const ModalContent = styled.div`
   padding: 30px;
   width: 35rem;
 
-  @media (max-width: 500px) {
-    width: 15rem;
+  @media (max-width: 650px) {
+    width: 80%;
   }
 `;
 
